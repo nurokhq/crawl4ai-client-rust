@@ -1,0 +1,28 @@
+[package]
+name = "crawl4ai-client"
+version = "0.1.0"
+edition = "2024"
+description = "Rust SDK for the Crawl4AI API"
+license = "MIT"
+repository = "https://github.com/nurokhq/crawl4ai-client-rust"
+homepage = "https://github.com/nurokhq/crawl4ai-client-rust"
+documentation = "https://docs.crawl4ai.com"
+authors = ["Rui Zhang <zr@nurok.ai>", "Jian Fang <fj@nurok.ai>"] 
+keywords = ["api", "client", "crawl4ai", "sdk"]
+categories = ["api-bindings"]
+
+[features]
+default = ["rustls-tls"]
+native-tls = ["reqwest/native-tls"]
+rustls-tls = ["reqwest/rustls-tls"]
+
+[dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = { version = "1.0.145" }
+serde_with = { version = "3.16.1", default-features = false, features = ["base64", "std", "macros"] }
+url = { version = "2.5.7" }
+reqwest = { version = "0.12.25", default-features = false, features = ["json", "multipart", "rustls-tls"] }
+
+[dev-dependencies]
+tokio = { version = "1.47.1", features = ["full"] }
+httpmock = { version = "0.7.0" }
