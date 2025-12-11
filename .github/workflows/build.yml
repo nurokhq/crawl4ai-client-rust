@@ -26,7 +26,7 @@ jobs:
 
       - name: Install OpenAPI Generator CLI
         run: |
-          npm install -g @openapitools/openapi-generator-cli@7.16.0
+          npm install -g @openapitools/openapi-generator-cli
           openapi-generator-cli version-manager set 7.16.0
 
       - name: Build
