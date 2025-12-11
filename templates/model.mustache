@@ -21,10 +21,12 @@ use serde_repr::{Serialize_repr,Deserialize_repr};
 /// {{{description}}}
 {{/description}}
 #[repr(i64)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr, Default)]
 pub enum {{{classname}}} {
 {{#allowableValues}}
 {{#enumVars}}
+    {{#-first}}#[default]
+    {{/-first}}
     {{{name}}} = {{{value}}},
 {{/enumVars}}{{/allowableValues}}
 }
@@ -48,11 +50,13 @@ impl std::fmt::Display for {{{classname}}} {
 {{#description}}
 /// {{{description}}}
 {{/description}}
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default)]
 pub enum {{{classname}}} {
 {{#allowableValues}}
 {{#enumVars}}
     #[serde(rename = "{{{value}}}")]
+    {{#-first}}#[default]
+    {{/-first}}
     {{{name}}},
 {{/enumVars}}{{/allowableValues}}
 }
@@ -70,13 +74,6 @@ impl std::fmt::Display for {{{classname}}} {
 }
 
 {{/isInteger}}
-impl Default for {{{classname}}} {
-    fn default() -> {{{classname}}} {
-        {{#allowableValues}}
-        Self::{{ enumVars.0.name }}
-        {{/allowableValues}}
-    }
-}
 {{/isEnum}}
 {{!-- for schemas that have a discriminator --}}
 {{#discriminator}}
@@ -205,22 +202,16 @@ impl Default for {{classname}} {
 {{#vars}}
 {{#isEnum}}
 /// {{{description}}}
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default)]
 pub enum {{{enumName}}} {
 {{#allowableValues}}
 {{#enumVars}}
     #[serde(rename = "{{{value}}}")]
+    {{#-first}}#[default]
+    {{/-first}}
     {{{name}}},
 {{/enumVars}}
 {{/allowableValues}}
-}
-
-impl Default for {{{enumName}}} {
-    fn default() -> {{{enumName}}} {
-        {{#allowableValues}}
-        Self::{{ enumVars.0.name }}
-        {{/allowableValues}}
-    }
 }
 {{/isEnum}}
 {{/vars}}

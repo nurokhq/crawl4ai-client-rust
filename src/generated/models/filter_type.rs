@@ -11,9 +11,12 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum FilterType {
     #[serde(rename = "raw")]
+    #[default]
     Raw,
     #[serde(rename = "fit")]
     Fit,
@@ -31,11 +34,5 @@ impl std::fmt::Display for FilterType {
             Self::Bm25 => write!(f, "bm25"),
             Self::Llm => write!(f, "llm"),
         }
-    }
-}
-
-impl Default for FilterType {
-    fn default() -> FilterType {
-        Self::Raw
     }
 }

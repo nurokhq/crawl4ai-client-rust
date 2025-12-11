@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 openapi-generator-cli generate \
   -i ./api/crawl4ai-openapi.json \
   -g rust \
