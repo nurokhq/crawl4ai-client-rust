@@ -1,11 +1,11 @@
 # crawl4ai-client-rust
 
 [![Build](https://github.com/nurokhq/crawl4ai-client-rust/actions/workflows/build.yml/badge.svg)](https://github.com/nurokhq/crawl4ai-client-rust/actions/workflows/build.yml)
-[![Rust](https://img.shields.io/badge/rust-1.70+-blue.svg)](https://www.rust-lang.org/)
+[![Rust](https://img.shields.io/badge/rust-1.85+-blue.svg)](https://www.rust-lang.org/)
 [![Code style: rustfmt](https://img.shields.io/badge/code%20style-rustfmt-000000.svg)](https://github.com/rust-lang/rustfmt)
 [![Linter: clippy](https://img.shields.io/badge/linter-clippy-blue.svg)](https://github.com/rust-lang/rust-clippy)
 
-Rust SDK for the [Crawl4AI API](https://github.com/unclecode/crawl4ai), providing type-safe bindings to interact with Crawl4AI.
+Rust API Client SDK for  [Crawl4AI API](https://github.com/unclecode/crawl4ai), providing type-safe bindings to interact with Crawl4AI.
 
 ## Overview
 
@@ -103,7 +103,7 @@ This script:
 
 ## Requirements
 
-- Rust 1.70 or later
+- Rust 1.85 or later
 - OpenAPI Generator CLI (for regeneration)
 
 ## License

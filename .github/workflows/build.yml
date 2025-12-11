@@ -19,6 +19,11 @@ jobs:
           toolchain: stable
           components: rustfmt, clippy, llvm-tools-preview
 
+      - name: OpenAPI Generator CLI
+        uses: openapitools/openapi-generator-cli@v2
+        with:
+          version: 7.16.0
+
       - name: Build
         env:
           RUSTFLAGS: "-D warnings"

@@ -2,6 +2,14 @@
 name = "crawl4ai-client"
 version = "0.1.0"
 edition = "2024"
+description = "Rust SDK for the Crawl4AI API"
+license = "MIT"
+repository = "https://github.com/nurokhq/crawl4ai-client-rust"
+homepage = "https://github.com/nurokhq/crawl4ai-client-rust"
+documentation = "https://docs.crawl4ai.com"
+authors = ["Rui Zhang <zr@nurok.ai>", "Jian Fang <fj@nurok.ai>"] 
+keywords = ["api", "client", "crawl4ai", "sdk"]
+categories = ["api-bindings"]
 
 [features]
 default = ["rustls-tls"]
