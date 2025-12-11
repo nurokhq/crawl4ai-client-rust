@@ -19,10 +19,15 @@ jobs:
           toolchain: stable
           components: rustfmt, clippy, llvm-tools-preview
 
-      - name: OpenAPI Generator CLI
-        uses: openapitools/openapi-generator-cli@v1
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          version: 7.16.0
+          node-version: 20
+
+      - name: Install OpenAPI Generator CLI
+        run: |
+          npm install -g @openapitools/openapi-generator-cli@7.16.0
+          openapi-generator-cli version-manager set 7.16.0
 
       - name: Build
         env:
